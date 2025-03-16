@@ -1,0 +1,30 @@
+baseURL = '/'
+languageCode = "ja"
+defaultContentLanguage = "ja"
+disableLanguages = ["en"]
+title = 'Polytopus'
+copyright = "© Polytopus"
+theme = "congo"
+sectionPagesMenu = "main"
+[params]
+    colorScheme = "avocado" # default = "congo"
+    showLanguageSelector = false
+    [params.homepage]
+        layout = "profile"
+        showRecent = true
+        # logo = "img/logo.png"
+    [params.author]
+        name = "多項"
+        image = "img/logo.png"
+        headline = "好き放題創作"
+        bio = "タコです。"
+        links = [
+    { twitter = "https://x.com/kiri_mist_fog" },
+    { instagram = "https://www.instagram.com/polytopus_/" }
+  ]
+
+[menu]
+    [[menu.main]]
+      name = "Home"
+     url = "/"
+      weight = 1
