@@ -28,7 +28,11 @@ jobs:
           pwd
           ls -la
           ls -la themes/
-
+      - name: Debug Shortcode Files
+        run: |
+           echo "Checking shortcodes directory..."
+           ls -la layouts/shortcodes/
+  
       - name: Build site
         run: hugo -v --ignoreVendorPaths -d public
 
