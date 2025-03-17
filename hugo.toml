@@ -28,7 +28,3 @@ sectionPagesMenu = "main"
       name = "Home"
      url = "/"
       weight = 1
-      
-[module]
-  [[module.imports]]
-      path = "github.com/jpanther/congo"
