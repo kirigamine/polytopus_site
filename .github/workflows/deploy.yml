@@ -20,9 +20,12 @@ jobs:
         with:
           hugo-version: 'latest'
 
+      - name: Reset Hugo Modules
+        run: rm -rf ~/go/pkg/mod && hugo mod tidy
       - name: Get Hugo Modules
         run: hugo mod get -u
         
+
       - name: Build site
         run: hugo -d public
 
