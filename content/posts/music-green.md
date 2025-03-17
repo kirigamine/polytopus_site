@@ -8,6 +8,7 @@ title: "曲ができました"
 
 やっぱりドラムンベースには疾走感が必要ですね。
 マスタリングにこだわったので、昔より聞きやすくなったはず！
-
+{{< icon "soundcloud" >}}
 曲はこちらになります！
-[{{< icon "soundcloud" >}} Green Eyed Solders](https://soundcloud.com/polytopus/green-eyed-solders)
+[Green Eyed Solders](https://soundcloud.com/polytopus/green-eyed-solders)
+{{< /alert >}}
