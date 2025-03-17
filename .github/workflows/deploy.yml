@@ -20,6 +20,9 @@ jobs:
         with:
           hugo-version: 'latest'
 
+      - name: Get Hugo Modules
+        run: hugo mod get -u
+        
       - name: Build site
         run: hugo -d public
 
@@ -29,5 +32,4 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
 
-      - name: Get Hugo Modules
-        run: hugo mod get -u
+
