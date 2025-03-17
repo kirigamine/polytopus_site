@@ -3,29 +3,22 @@ name: Deploy Hugo Site
 on:
   push:
     branches:
-      - main  # mainにプッシュしたら発火
+      - main  # main に push されたら発火
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Check out repository
+      - name: チェックアウト
         uses: actions/checkout@v3
         with:
-          submodules: recursive  # ← これでサブモジュールも取る
-          fetch-depth: 0
+          submodules: true  # サブモジュールも取得
 
       - name: Install Hugo
         uses: peaceiris/actions-hugo@v2
         with:
           hugo-version: 'latest'
 
-      - name: Build site
-        run: hugo -d public --verbose  # ← 余計なオプションなし
-
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
+      - name: スクリプト実行
+        run: bash deploy.sh  # ここで `deploy.sh` を実行
