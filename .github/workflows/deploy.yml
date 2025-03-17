@@ -3,7 +3,7 @@ name: Deploy Hugo Site
 on:
   push:
     branches:
-      - main  # mainにプッシュしたら発火
+      - main  # main にプッシュしたら発火
 
 jobs:
   deploy:
@@ -13,7 +13,7 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v3
         with:
-          submodules: true  # ← ここでサブモジュールを取得する
+          submodules: true  # ← サブモジュールを取得
 
       - name: Install Hugo
         uses: peaceiris/actions-hugo@v2
@@ -22,17 +22,18 @@ jobs:
 
       - name: Reset Hugo Modules
         run: rm -rf ~/go/pkg/mod && hugo mod tidy
-      - name: Get Hugo Modules
-        run: hugo mod get -u
-        
+
+      - name: Debug Build Environment
+        run: |
+          pwd
+          ls -la
+          ls -la themes/
 
       - name: Build site
-        run: hugo -d public
+        run: hugo -v --ignoreVendorPaths -d public
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
-
-
