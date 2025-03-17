@@ -3,7 +3,7 @@ name: Deploy Hugo Site
 on:
   push:
     branches:
-      - main  # main にプッシュしたら発火
+      - main  # mainにプッシュしたら発火
 
 jobs:
   deploy:
@@ -13,33 +13,16 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v3
         with:
-          submodules: recursive  # ← サブモジュール取得を完全にする
+          submodules: recursive  # ← これでサブモジュールも取る
+          fetch-depth: 0
 
       - name: Install Hugo
         uses: peaceiris/actions-hugo@v2
         with:
           hugo-version: 'latest'
 
-      - name: Debug Themes Directory
-        run: |
-          echo "Checking themes directory..."
-          ls -la themes/ || exit 1
-
-      - name: Debug Shortcodes
-        run: |
-          echo "Checking shortcodes directory..."
-          ls -la layouts/shortcodes/ || exit 1
-
-      - name: Debug Theme Shortcodes
-        run: |
-          echo "Checking theme shortcodes..."
-          ls -la themes/congo/layouts/shortcodes/ || exit 1
-
-      - name: Clean Hugo Modules Cache
-        run: hugo mod clean
-
       - name: Build site
-        run: hugo -v --themesDir themes -d public
+        run: hugo -d public --verbose  # ← 余計なオプションなし
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
