@@ -1,4 +1,4 @@
-baseURL = '/'
+baseURL = 'https://kirigamine.github.io/polytopus_site/'
 languageCode = "ja"
 defaultContentLanguage = "ja"
 disableLanguages = ["en"]
