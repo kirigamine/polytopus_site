@@ -4,21 +4,21 @@
   
     
       <url>
-            <loc>//localhost:1313/posts/</loc>
-            <lastmod>2025-03-17T06:30:04+09:00</lastmod>
+            <loc>http://localhost:1313/polytopus_site/posts/</loc>
+            <lastmod>2025-03-17T10:50:47+09:00</lastmod>
           </url>
     
   
     
       <url>
-            <loc>//localhost:1313/posts/test-post/</loc>
-            <lastmod>2025-03-17T06:30:04+09:00</lastmod>
+            <loc>http://localhost:1313/polytopus_site/</loc>
+            <lastmod>2025-03-17T10:50:47+09:00</lastmod>
           </url>
     
   
     
       <url>
-            <loc>//localhost:1313/</loc>
+            <loc>http://localhost:1313/polytopus_site/posts/test-post/</loc>
             <lastmod>2025-03-17T06:30:04+09:00</lastmod>
           </url>
     
