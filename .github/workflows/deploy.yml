@@ -13,26 +13,31 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v3
         with:
-          submodules:  recursive
+          submodules: recursive  # ← サブモジュール取得を完全にする
 
       - name: Install Hugo
         uses: peaceiris/actions-hugo@v2
         with:
           hugo-version: 'latest'
 
-      - name: Reset Hugo Modules
-        run: rm -rf ~/go/pkg/mod && hugo mod tidy
+      - name: Debug Themes Directory
+        run: |
+          echo "Checking themes directory..."
+          ls -la themes/ || exit 1
 
-      - name: Debug Build Environment
+      - name: Debug Shortcodes
         run: |
-          pwd
-          ls -la
-          ls -la themes/
-      - name: Debug Shortcode Files
+          echo "Checking shortcodes directory..."
+          ls -la layouts/shortcodes/ || exit 1
+
+      - name: Debug Theme Shortcodes
         run: |
-           echo "Checking shortcodes directory..."
-           ls -la layouts/shortcodes/
-  
+          echo "Checking theme shortcodes..."
+          ls -la themes/congo/layouts/shortcodes/ || exit 1
+
+      - name: Clean Hugo Modules Cache
+        run: hugo mod clean
+
       - name: Build site
         run: hugo -v --themesDir themes -d public
 
