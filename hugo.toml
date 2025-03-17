@@ -28,6 +28,3 @@ sectionPagesMenu = "main"
       name = "Home"
      url = "/"
       weight = 1
-
-[frontmatter]
-  format = "yaml"
